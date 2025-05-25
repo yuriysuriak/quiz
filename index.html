@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="uk" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProTrainer ВПУ29</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+<body>
+   <div class="cyber-glitch"></div>
+    <div class="particles-js"></div>
+    
+    <div class="app-container">
+        <!-- Сплеш-екран -->
+        <div id="splash" class="splash-screen">
+            <div class="cyber-logo">
+                <div class="hexagon"></div>
+                <div class="hexagon"></div>
+                <div class="hexagon"></div>
+                <span class="logo-text">NexMind </span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" data-loading=""></div>
+            </div>
+            <div class="terminal-text">
+                <span class="typed"></span><span class="cursor">|</span>
+            </div>
+        </div>
+        <!-- Головний інтерфейс -->
+        <div id="app" class="hidden">
+            <!-- Навігація -->
+            <nav class="glass-nav">
+                <button id="theme-toggle" class="icon-btn">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="nav-logo">ProTrainer</div>
+                <button class="icon-btn">
+                    <i class="fas fa-user"></i>
+                </button>
+            </nav>
+
+            <!-- Динамічний контент -->
+            <main id="router-view">
+                <!-- Тут відображаються сторінки -->
+            </main>
+        </div>
+    </div>
+
+    <!-- Шаблони сторінок -->
+    <template id="home-page">
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Професійна <span>підготовка</span></h2>
+                <p class="subtitle">Тренажер зі спецпредметів ВПУ29</p>
+                <div class="cta-container">
+                    <button class="cta-btn" data-route="subjects">
+                        Почати тренування
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="secondary-btn" data-route="about">
+                        Про систему
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://cdn.pixabay.com/photo/2017/05/10/19/29/robot-2301646_1280.png" alt="Освіта" class="floating">
+            </div>
+        </section>
+    </template>
+
+    <template id="subjects-page">
+        <section class="subjects-container">
+            <h2>Оберіть предмет</h2>
+            <div class="subject-grid">
+                <!-- Генерується JS -->
+            </div>
+        </section>
+    </template>
+
+    <!-- Інші шаблони... -->
+
+    <script src="app.js"></script>
+</body>
+</html>
