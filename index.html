@@ -1,91 +1,108 @@
 <!DOCTYPE html>
-<html lang="uk" data-theme="dark">
+<html lang="uk" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProTrainer ВПУ29</title>
+    <title>Професійний тренажер ВПУ29</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <style>
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-</style>
 </head>
 <body>
-   <div class="cyber-glitch"></div>
-    <div class="particles-js"></div>
-    
     <div class="app-container">
-        <!-- Сплеш-екран -->
+        <!-- Сплеш-екран з 3D кубом -->
         <div id="splash" class="splash-screen">
-            <div class="cyber-logo">
-                <div class="hexagon"></div>
-                <div class="hexagon"></div>
-                <div class="hexagon"></div>
-                <span class="logo-text">NexMind </span>
+            <div class="cube-container">
+                <div class="cube">
+                    <div class="front">ВПУ</div>
+                    <div class="back">29</div>
+                    <div class="right">PRO</div>
+                    <div class="left">TRAIN</div>
+                    <div class="top"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="bottom">2024</div>
+                </div>
             </div>
-            <div class="progress-bar">
-                <div class="progress-fill" data-loading=""></div>
+            <div class="loading-bar">
+                <div class="progress"></div>
             </div>
-            <div class="terminal-text">
-                <span class="typed"></span><span class="cursor">|</span>
-            </div>
+            <p class="loading-text">Завантаження навчальної системи...</p>
         </div>
+
         <!-- Головний інтерфейс -->
         <div id="app" class="hidden">
-            <!-- Навігація -->
-            <nav class="glass-nav">
-                <button id="theme-toggle" class="icon-btn">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <div class="nav-logo">ProTrainer</div>
-                <button class="icon-btn">
-                    <i class="fas fa-user"></i>
-                </button>
-            </nav>
+            <!-- Шапка -->
+            <header class="main-header">
+                <div class="header-content">
+                    <div class="logo">
+    <img src="cropped-favicon-removebg-preview.png" alt="Логотип ВПУ29" class="logo-image">
+    <span class="logo-text">ВПУ29 <span>Тренажер</span></span>
+</div>
+                   <nav class="main-nav">
+    <button id="theme-toggle" class="nav-btn">
+        <i class="fas fa-moon"></i>
+    </button>
+   <button class="nav-btn" data-route="home">
+    <i class="fas fa-arrow-left"></i>
+</button>
+</nav>
+                </div>
+            </header>
 
-            <!-- Динамічний контент -->
-            <main id="router-view">
-                <!-- Тут відображаються сторінки -->
-            </main>
+            <!-- Основний контент -->
+            <main id="router-view"></main>
+
+            <!-- Підвал -->
+            <footer class="main-footer">
+                <p>© 2024 Професійний тренажер ВПУ29. Всі права захищені.</p>
+            </footer>
         </div>
     </div>
 
     <!-- Шаблони сторінок -->
     <template id="home-page">
-        <section class="hero">
-            <div class="hero-content">
-                <h2>Професійна <span>підготовка</span></h2>
-                <p class="subtitle">Тренажер зі спецпредметів ВПУ29</p>
-                <div class="cta-container">
-                    <button class="cta-btn" data-route="subjects">
-                        Почати тренування
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                    <button class="secondary-btn" data-route="about">
-                        Про систему
+        <section class="home-section">
+            <div class="hero-card">
+                <h1>Професійна підготовка</h1>
+                <p class="subtitle">Тренажерний комплекс для підготовки до контрольної роботи</p>
+                
+                <div class="cta-section">
+                    <button class="primary-btn" data-route="subjects">
+                        <i class="fas fa-play"></i> Почати тренування
                     </button>
                 </div>
+                
+                <div class="features-grid">
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-book-open"></i></div>
+                        <h3>Повний курс</h3>
+                        <p>Всі необхідні предмети в одному місці</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>Прогрес</h3>
+                        <p>Відстежуйте свої успіхи</p>
+                    </div>
+                </div>
             </div>
-            <div class="hero-image">
-                <img src="https://cdn.pixabay.com/photo/2017/05/10/19/29/robot-2301646_1280.png" alt="Освіта" class="floating">
+            
+            <div class="image-section">
+                <img src="https://vpu29.lviv.ua/wp-content/uploads/2023/10/H.korpus2023.jpg" alt="Навчання">
             </div>
         </section>
     </template>
 
     <template id="subjects-page">
-        <section class="subjects-container">
-            <h2>Оберіть предмет</h2>
-            <div class="subject-grid">
+        <section class="subjects-section">
+            <div class="section-header">
+                <h2>Доступні предмети</h2>
+                <p>Оберіть предмет для тренування</p>
+            </div>
+            
+            <div class="subjects-grid">
                 <!-- Генерується JS -->
             </div>
         </section>
     </template>
-
-    <!-- Інші шаблони... -->
 
     <script src="app.js"></script>
 </body>
